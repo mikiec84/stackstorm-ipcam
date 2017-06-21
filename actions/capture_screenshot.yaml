@@ -1,5 +1,5 @@
 name: capture_screenshot
-runner_type: run-python
+runner_type: python-script
 description: Capture a screenshot of the camera's FOV.
 enabled: true
 entry_point: capture_screenshot.py
