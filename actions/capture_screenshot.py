@@ -1,4 +1,3 @@
-import httplib
 from tempfile import NamedTemporaryFile
 
 import requests
@@ -20,7 +19,8 @@ class CaptureScreenshotAction(Action):
         print capture_url
         response = requests.get(capture_url)
 
-        if response.status_code not in [httplib.OK, httplib.CREATED]:
+        # pylint: disable=no-member
+        if response.status_code not in [requests.codes.ok, requests.codes.created]:
             msg = 'Failed to capture screenshot: %s (%s)' % (response.text, response.status_code)
             raise Exception(msg)
 
